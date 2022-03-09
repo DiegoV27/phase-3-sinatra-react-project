@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
     get '/categories' do
-        categories = Category.all.order
+        categories = Category.all
         categories.to_json
     end 
 
