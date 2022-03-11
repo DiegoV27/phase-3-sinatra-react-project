@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
     get '/categories' do
         categories = Category.all
-        categories.to_json
+        categories.to_json(:include => :items)
     end 
 
     get '/categories/:id' do
