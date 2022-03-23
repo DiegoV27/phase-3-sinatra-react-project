@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2022_03_07_235632) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "title"
   end
 
   create_table "grocery_lists", force: :cascade do |t|
     t.string "title"
-    t.integer "item_id"
-    t.integer "category_id"
+    t.bigint "item_id"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_grocery_lists_on_category_id"
     t.index ["item_id"], name: "index_grocery_lists_on_item_id"
   end
